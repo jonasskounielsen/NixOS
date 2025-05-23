@@ -3,8 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let unstable = import <unstable> { config.allowUnfree = true; };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -16,7 +14,7 @@ in
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "jonas-nixos-desktop"; # Define your hostname.
 
   networking.networkmanager.enable = true; # Enable networking
 
@@ -79,7 +77,7 @@ in
       discord
       steam
       onedriver
-      unstable.vscode
+      vscode
     #  thunderbird
     ];
   };
