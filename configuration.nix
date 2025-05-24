@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ _, pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -78,6 +78,7 @@
       steam
       onedriver
       vscode
+      bitwarden-desktop
     #  thunderbird
     ];
   };
