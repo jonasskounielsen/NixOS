@@ -53,7 +53,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -72,14 +72,8 @@
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.plasma-browser-integration
-      discord
-      steam
-      onedriver
-      vscode
-      bitwarden-desktop
-    #  thunderbird
+    packages = /*with pkgs;*/ [
+      # in home.nix
     ];
   };
 
