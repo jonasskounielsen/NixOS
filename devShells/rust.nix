@@ -1,6 +1,6 @@
 { pkgs }:
 
-builtins.trace pkgs pkgs.mkShell {
+pkgs.mkShell {
     # nativeBuildInputs = with pkgs; [
 
     # ];

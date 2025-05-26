@@ -11,6 +11,7 @@
         let
             lib = nixpkgs.lib;
             system = "x86_64-linux";
+            pkgs = (import nixpkgs {inherit system; });
         in {
         nixosConfigurations = {
             jonas-nixos-desktop = lib.nixosSystem {
@@ -27,7 +28,7 @@
             };
         };
         devShells.${system} = {
-            rust = (import ./devShells/rust.nix { pkgs = (import nixpkgs {inherit system; }); });
+            rust = (import ./devShells/rust.nix { inherit pkgs; });
         };
     };
 }
