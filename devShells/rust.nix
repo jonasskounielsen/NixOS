@@ -1,11 +1,10 @@
 { pkgs }:
 
 pkgs.mkShell {
-    # nativeBuildInputs = with pkgs; [
-
-    # ];
-
-    shellHook = ''
-        echo "test"
-    '';
+    nativeBuildInputs = with pkgs; [
+        cargo
+        rustc
+        rustfmt
+        rustPackages.clippy
+    ];
 }
