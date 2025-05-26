@@ -10,10 +10,11 @@
     outputs = { self, nixpkgs, home-manager, ...}:
         let
             lib = nixpkgs.lib;
+            system = "x86_64-linux";
         in {
         nixosConfigurations = {
             jonas-nixos-desktop = lib.nixosSystem {
-                system = "x86_64-linux";
+                system = system;
                 modules = [
                     ./configuration.nix
                     home-manager.nixosModules.home-manager
@@ -24,6 +25,9 @@
                     }
                 ];
             };
+        };
+        devShells.${system} = {
+            rust = (import ./devShells/rust.nix { pkgs = (import nixpkgs {inherit system; }); });
         };
     };
 }

@@ -1,4 +1,4 @@
-{ _, pkgs, ... }:
+{ /*config,*/ pkgs, ... }:
 {
     home = {
         username = "jonas";
@@ -28,7 +28,6 @@
             enable = true;
             userName = "jonasskounielsen";
             userEmail = "jonasskou.n@gmail.com";
-
         };
     };
 }
