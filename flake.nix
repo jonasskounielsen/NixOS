@@ -17,7 +17,7 @@
             jonas-nixos-desktop = lib.nixosSystem {
                 system = system;
                 modules = [
-                    ./configuration.nix
+                    ./desktop/configuration.nix
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
