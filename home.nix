@@ -9,7 +9,7 @@
             discord
             steam
             onedriver
-            vscode
+            # vscode
             bitwarden-desktop
             #  thunderbird
         ];
@@ -28,6 +28,19 @@
             enable = true;
             userName = "jonasskounielsen";
             userEmail = "jonasskou.n@gmail.com";
+        };
+        vscode = {
+            enable = true;
+            package = pkgs.vscodium;
+            profiles = {
+                rust = {
+                    extensions = /*with pkgs.vscode-extensions;*/ [
+pkgs.vscode-extensions.ziglang.vscode-zig                    ];
+                    userSettings = {
+
+                    };
+                };
+            };
         };
     };
 }
