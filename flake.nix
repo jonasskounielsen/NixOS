@@ -26,6 +26,18 @@
                     }
                 ];
             };
+            jonas-nixos-laptop = lib.nixosSystem {
+                system = system;
+                modules = [
+                    ./laptop/configuration.nix
+                    home-manager.nixosModules.home-manager
+                    {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.users.jonas = ./home.nix;
+                    }
+                ];
+            };
         };
         devShells.${system} = {
             rust = (import ./devShells/rust.nix { inherit pkgs; });
