@@ -46,18 +46,9 @@
     packages = [ /*in home.nix*/ ];
   };
 
-  security.sudo.extraRules = [{
-    users = ["jonas"];
-    commands = [{
-      command = "ALL";
-      options = ["NOPASSWD"];
-    }];
-  }];
+  programs.bash.promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
 
   programs.steam.enable = true;
-
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "jonas";
 
   programs.firefox.enable = true;
 
