@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ /*config,*/ pkgs, ... }:
+{ /*config,*/ /*pkgs,*/ ... }:
 {
   imports =
     [
@@ -16,6 +16,17 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "jonas-nixos-desktop";
+
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "jonas";
+
+  security.sudo.extraRules = [{
+    users = ["jonas"];
+    commands = [{
+      command = "ALL";
+      options = ["NOPASSWD"];
+    }];
+  }];
 
   hardware.graphics = {
     enable = true;

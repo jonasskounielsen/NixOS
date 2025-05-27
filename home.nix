@@ -22,7 +22,7 @@
         stateVersion = "24.11";
     };
 
-    programs= {
+    programs = {
         home-manager.enable = true;
         git = {
             enable = true;
