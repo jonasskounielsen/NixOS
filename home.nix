@@ -35,7 +35,7 @@
             profiles = {
                 rust = {
                     extensions = with pkgs.vscode-extensions; [
-                        ziglang.vscode-zig # apparently home manager creates a broken extensions dir if there are no extensions
+                        rust-lang.rust-analyzer # apparently home manager creates a broken extensions dir if there are no extensions
                     ];
                     userSettings = {
 

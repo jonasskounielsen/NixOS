@@ -60,6 +60,7 @@
     git
     nil
     wget
+    yazi
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
