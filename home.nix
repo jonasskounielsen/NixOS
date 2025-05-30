@@ -18,7 +18,7 @@
             # environment variables
         };
 
-        # like system.stateVersion but for Home Manager
+        # like system.stateVersion but for home manager
         stateVersion = "24.11";
     };
 
@@ -34,8 +34,9 @@
             package = pkgs.vscodium;
             profiles = {
                 rust = {
-                    extensions = /*with pkgs.vscode-extensions;*/ [
-pkgs.vscode-extensions.ziglang.vscode-zig                    ];
+                    extensions = with pkgs.vscode-extensions; [
+                        ziglang.vscode-zig # apparently home manager creates a broken extensions dir if there are no extensions
+                    ];
                     userSettings = {
 
                     };
