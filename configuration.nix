@@ -39,6 +39,9 @@
     # jack.enable = true;
   };
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
