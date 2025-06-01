@@ -9,8 +9,8 @@
             discord
             steam
             onedriver
-            # vscode
             bitwarden-desktop
+            onlyoffice-desktopeditors
             #  thunderbird
         ];
 
@@ -33,9 +33,10 @@
             enable = true;
             package = pkgs.vscodium;
             profiles = {
-                rust = {
+                rust = { # apparently home manager creates a broken extensions dir if there are no extensions
                     extensions = with pkgs.vscode-extensions; [
-                        rust-lang.rust-analyzer # apparently home manager creates a broken extensions dir if there are no extensions
+                        rust-lang.rust-analyzer
+                        vadimcn.vscode-lldb
                     ];
                     userSettings = {
 
