@@ -39,7 +39,8 @@
                         vadimcn.vscode-lldb
                     ];
                     userSettings = {
-
+                        "workbench.colorTheme" = "Monokai";
+                        "workbench.panel.defaultLocation" = "right";
                     };
                 };
             };
