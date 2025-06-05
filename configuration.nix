@@ -64,7 +64,13 @@
     nil
     wget
     yazi
+    opentabletdriver
   ];
+
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
