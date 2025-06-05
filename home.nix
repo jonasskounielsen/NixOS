@@ -11,6 +11,8 @@
             onedriver
             bitwarden-desktop
             onlyoffice-desktopeditors
+            osu-lazer-bin
+            opentabletdriver
             #  thunderbird
         ];
 
