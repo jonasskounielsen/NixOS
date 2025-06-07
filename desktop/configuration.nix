@@ -34,11 +34,6 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.opentabletdriver = {
-    enable = true;
-    daemon.enable = true;
-  };
-
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;

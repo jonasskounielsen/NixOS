@@ -26,6 +26,10 @@
   };
   console.keyMap = "dk-latin1";
 
+  fonts.packages = with pkgs; [
+    liberation_ttf
+  ];
+
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
