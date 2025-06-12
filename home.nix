@@ -41,7 +41,6 @@
                         usernamehw.errorlens
                     ];
                     userSettings = {
-                        "workbench.colorTheme" = "monokai";
                         "editor.formatOnSave" = true;
                         "editor.formatOnSaveMode" = "modifications";
                         "git.autofetch" = true;
@@ -51,6 +50,7 @@
                         "rust-analyzer.diagnostics.styleLints.enable" = true;
                         "terminal.integrated.tabs.enabled" = false;
                         "explorer.confirmDragAndDrop" = false;
+                        "workbench.colorTheme" = "Monokai";
                     };
                     keybindings = [
                         {
