@@ -13,7 +13,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "jonas-nixos-laptop";
+  networking.hostName = "jonas-laptop";
 
   hardware.graphics = {
     enable = true;
