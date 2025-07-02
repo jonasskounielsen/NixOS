@@ -86,9 +86,9 @@
                 ];
                 extensions = with pkgs.vscode-extensions; [
                     usernamehw.errorlens
-                ];
+                ]; # apparently home manager creates a broken extensions dir if there are no extensions
             in {
-                rust = { # apparently home manager creates a broken extensions dir if there are no extensions
+                rust = {
                     userSettings = userSettings;
                     keybindings = keybindings;
                     extensions = extensions ++ (with pkgs.vscode-extensions; [
@@ -101,6 +101,8 @@
                     keybindings = keybindings;
                     extensions = extensions ++ (with pkgs.vscode-extensions; [
                         platformio.platformio-vscode-ide
+                        rust-lang.rust-analyzer
+                        vadimcn.vscode-lldb
                     ]);
                 };
             };
