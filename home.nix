@@ -11,6 +11,7 @@
             bitwarden-desktop
             onlyoffice-desktopeditors
             osu-lazer-bin
+            neovim
             #  thunderbird
         ];
 
@@ -45,6 +46,9 @@
                     "terminal.integrated.tabs.enabled" = false;
                     "explorer.confirmDragAndDrop" = false;
                     "workbench.colorTheme" = "Monokai";
+                    "extensions.experimental.affinity" = {
+                        "asvetliakov.vscode-neovim" = "1";
+                    };
                 };
                 keybindings = [
                     {
@@ -86,6 +90,7 @@
                 ];
                 extensions = with pkgs.vscode-extensions; [
                     usernamehw.errorlens
+                    asvetliakov.vscode-neovim
                 ]; # apparently home manager creates a broken extensions dir if there are no extensions
             in {
                 rust = {
