@@ -11,10 +11,10 @@
         let
             lib = nixpkgs.lib;
             system = "x86_64-linux";
-            pkgs = (import nixpkgs {inherit system; });
+            pkgs = (import nixpkgs { inherit system; });
         in {
         nixosConfigurations = {
-            jonas-nixos-desktop = lib.nixosSystem {
+            jonas-desktop = lib.nixosSystem {
                 system = system;
                 modules = [
                     ./desktop/configuration.nix
@@ -26,7 +26,7 @@
                     }
                 ];
             };
-            jonas-nixos-laptop = lib.nixosSystem {
+            jonas-laptop = lib.nixosSystem {
                 system = system;
                 modules = [
                     ./laptop/configuration.nix

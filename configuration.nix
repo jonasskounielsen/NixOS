@@ -26,6 +26,10 @@
   };
   console.keyMap = "dk-latin1";
 
+  fonts.packages = with pkgs; [
+    liberation_ttf
+  ];
+
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
@@ -64,7 +68,13 @@
     nil
     wget
     yazi
+    opentabletdriver
   ];
+
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -78,7 +88,7 @@
 
   services.openssh.enable = true;
 
-  # networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   # This value determines the NixOS release from which the default
