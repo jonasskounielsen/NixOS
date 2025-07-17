@@ -41,6 +41,7 @@
         };
         devShells.${system} = {
             rust = (import ./devShells/rust.nix { inherit pkgs; });
+            ttt-masters = (import ./devShells/ttt-masters.nix { inherit pkgs; });
         };
     };
 }
