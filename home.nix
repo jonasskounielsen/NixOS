@@ -6,6 +6,7 @@
 
         packages = with pkgs; [
             kdePackages.plasma-browser-integration
+            kdePackages.kdeconnect-kde
             discord
             onedriver
             bitwarden-desktop

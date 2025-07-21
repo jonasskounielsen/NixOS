@@ -5,37 +5,43 @@
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+        nix-ld.url = "github:Mic92/nix-ld/2.0.4";
+        # rust compile error when specifying v2.0.3 or not specifying version
+        nix-ld.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    outputs = { self, nixpkgs, home-manager, ...}:
+    outputs = { self, nixpkgs, home-manager, nix-ld, ...}:
         let
             lib = nixpkgs.lib;
             system = "x86_64-linux";
             pkgs = (import nixpkgs { inherit system; });
+            sharedModules = [
+                home-manager.nixosModules.home-manager
+                {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.jonas = ./home.nix;
+                }
+                nix-ld.nixosModules.nix-ld
+                {
+                    programs.nix-ld.dev.enable = true;
+                    programs.nix-ld.libraries = with pkgs; [
+                        stdenv.cc.cc
+                    ];
+                }
+            ];
         in {
         nixosConfigurations = {
             jonas-desktop = lib.nixosSystem {
-                system = system;
-                modules = [
+                inherit system;
+                modules = sharedModules ++ [
                     ./desktop/configuration.nix
-                    home-manager.nixosModules.home-manager
-                    {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.jonas = ./home.nix;
-                    }
                 ];
             };
             jonas-laptop = lib.nixosSystem {
-                system = system;
-                modules = [
+                inherit system;
+                modules = sharedModules ++ [
                     ./laptop/configuration.nix
-                    home-manager.nixosModules.home-manager
-                    {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.jonas = ./home.nix;
-                    }
                 ];
             };
         };
