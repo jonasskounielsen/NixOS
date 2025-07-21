@@ -114,6 +114,14 @@
                         vadimcn.vscode-lldb
                     ]);
                 };
+                ttt-masters = {
+                    userSettings = userSettings;
+                    keybindings = keybindings;
+                    extensions = extensions ++ (with pkgs.vscode-extensions; [
+                        rust-lang.rust-analyzer
+                        vadimcn.vscode-lldb
+                    ]);
+                };
             };
         };
     };
