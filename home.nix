@@ -87,6 +87,10 @@
                         key = "ctrl+alt+s";
                         command = "workbench.action.files.saveFiles";
                     }
+                    {
+                        key = "ctrl+enter";
+                        command = "rust-analyzer.run";
+                    }
                 ];
                 extensions = with pkgs.vscode-extensions; [
                     usernamehw.errorlens
