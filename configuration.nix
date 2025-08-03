@@ -49,8 +49,8 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = [ /*in home.nix*/ ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    packages = [ /* in home.nix */ ];
   };
 
   programs.bash.promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';

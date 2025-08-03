@@ -53,11 +53,6 @@
                 };
                 keybindings = [
                     {
-                        key = "ctrl+alt+v";
-                        command = "-workbench.action.editorDictation.start";
-                        when = "hasSpeechProvider && !editorReadonly && !speechToTextInProgress";
-                    }
-                    {
                         key = "ctrl+shift+d";
                         command = "editor.action.addSelectionToPreviousFindMatch";
                     }
@@ -71,16 +66,6 @@
                         when = "editorTextFocus && !editorReadonly";
                     }
                     {
-                        key = "ctrl+shift+7";
-                        command = "-editor.action.commentLine";
-                        when = "editorTextFocus && !editorReadonly";
-                    }
-                    {
-                        key = "ctrl+shift+a";
-                        command = "-editor.action.blockComment";
-                        when = "editorTextFocus && !editorReadonly";
-                    }
-                    {
                         key = "ctrl+shift+'";
                         command = "editor.action.blockComment";
                     }
@@ -90,7 +75,24 @@
                     }
                     {
                         key = "ctrl+enter";
-                        command = "rust-analyzer.run";
+                        command = "workbench.action.tasks.build";
+                    }
+                    {
+                        key = "ctrl+enter";
+                        command = "workbench.action.tasks.restartTask";
+                        when = "taskRunning";
+                    }
+                    {
+                        key = "ctrl+shift+w";
+                        command = "-workbench.action.closeWindow";
+                    }
+                    {
+                        key = "ctrl+shift+w";
+                        command = "workbench.action.closeActiveEditor";
+                    }
+                    {
+                        key = "ctrl-k ctrl+t";
+                        command = "terminal.focus";
                     }
                 ];
                 extensions = with pkgs.vscode-extensions; [
@@ -110,9 +112,7 @@
                     userSettings = userSettings;
                     keybindings = keybindings;
                     extensions = extensions ++ (with pkgs.vscode-extensions; [
-                        platformio.platformio-vscode-ide
-                        rust-lang.rust-analyzer
-                        vadimcn.vscode-lldb
+                        sumneko.lua
                     ]);
                 };
                 ttt-masters = {
