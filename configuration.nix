@@ -49,8 +49,21 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "libvirtd" ];
     packages = [ /* in home.nix */ ];
+  };
+
+  # Virtualization settings from https://www.youtube.com/watch?v=rCVW8BGnYIc and https://nixos.wiki/wiki/Virt-manager.
+  programs.virt-manager.enable = true;
+
+  virtualisation = {
+    libvirtd.enable = true;
+    libvirtd.qemu = {
+      swtpm.enable = true;
+      ovmf.enable = true;
+      ovmf.packages = [ pkgs.OVMFFull.fd ];
+    };
+    spiceUSBRedirection.enable = true;
   };
 
   programs.bash.promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
