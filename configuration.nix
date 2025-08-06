@@ -82,6 +82,7 @@
     wget
     yazi
     opentabletdriver
+    tuxclocker
   ];
 
   hardware.opentabletdriver = {
