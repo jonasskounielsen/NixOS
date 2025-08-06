@@ -15,6 +15,7 @@ pkgs.mkShell {
         shaderc
     ];
     LD_LIBRARY_PATH = lib.makeLibraryPath (with pkgs; [
+        libxkbcommon # winit crashes when not present
         vulkan-loader
     ]);
     SHADERC_LIB_DIR = lib.makeLibraryPath (with pkgs; [
