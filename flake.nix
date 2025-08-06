@@ -49,6 +49,7 @@
             rust = (import ./devShells/rust.nix { inherit pkgs; });
             ttt-masters = (import ./devShells/ttt-masters.nix { inherit pkgs; });
             esp8266-lua = (import ./devShells/esp8266-lua.nix { inherit pkgs; });
+            vulkano = (import ./devShells/vulkano.nix { inherit pkgs; });
         };
     };
 }
