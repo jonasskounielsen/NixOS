@@ -35,11 +35,17 @@
                 ];
             };
         };
-        devShells.${system} = {
-            rust = (import ./devShells/rust.nix { inherit pkgs; });
-            ttt-masters = (import ./devShells/ttt-masters.nix { inherit pkgs; });
-            esp8266-lua = (import ./devShells/esp8266-lua.nix { inherit pkgs; });
-            vulkano = (import ./devShells/vulkano.nix { inherit pkgs; });
-        };
+        devShells.${system} = builtins.listToAttrs (
+            map (
+                fileName: let
+                    nameLen = (builtins.stringLength fileName) - 4;
+                    name = builtins.substring 0 nameLen fileName;
+                in
+                    {
+                        inherit name;
+                        value = import "${./devShells}/${fileName}" { inherit pkgs; };
+                    }
+            ) (builtins.attrNames (builtins.readDir ./devShells))
+        );
     };
 }
