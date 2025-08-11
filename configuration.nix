@@ -1,5 +1,16 @@
 { /*config,*/ pkgs, ... }:
 {
+  nix.registry.system = {
+    from = {
+      type = "indirect";
+      id = "system";
+    };
+    to = {
+      type = "path";
+      path = "/home/jonas/NixOS";
+    };
+  };
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
