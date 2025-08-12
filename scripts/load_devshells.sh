@@ -41,8 +41,9 @@ exit_trap() {
     fi
 }
 
+# for some reason trap doesn't trigger when manually exiting
 set_trap() {
-        trap "eval \"$(trap -P EXIT)\"; exit_trap" EXIT
+    trap "eval \"$(trap -P EXIT)\"; exit_trap" EXIT
 }
 
 set_trap

@@ -1,5 +1,5 @@
 {
-    description = "desktop config";
+    description = "nixos config";
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";

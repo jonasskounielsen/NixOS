@@ -8,7 +8,6 @@
             kdePackages.plasma-browser-integration
             kdePackages.kdeconnect-kde
             discord
-            onedriver
             bitwarden-desktop
             onlyoffice-desktopeditors
             osu-lazer-bin
