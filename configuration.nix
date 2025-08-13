@@ -1,5 +1,10 @@
 { /*config,*/ pkgs, ... }:
 {
+  imports =
+  [
+    ./modules/rclone.nix
+  ];
+
   nix.registry.system = {
     from = {
       type = "indirect";
@@ -126,25 +131,6 @@
       { from = 1714; to = 1764; }
     ];
   };
-
-  #systemd.services."rclone-onedrive" = {
-  #  description = "Rclone automounts";
-  #  after = [ "network-online.target" ];
-  #  wants = [ "network-online.target" ];
-  #  serviceConfig = {
-  #    Type = "notify";
-  #    ExecStart = ''
-  #      rclone mount \
-  #        Onedrive-skole: /home/jonas/Onedrive-skole \
-  #        --config /home/jonas/.config/rclone/rclone.conf \
-  #        --vfs-cache-mode=writes
-  #    '';
-  #    ExecStop = "fusermount -u /home/jonas/Onedrive-skole";
-  #    Restart = "on-failure";
-  #    RestartSec = 10;
-  #  };
-  #  wantedBy = [ "multi-user.target" ];
-  #};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
