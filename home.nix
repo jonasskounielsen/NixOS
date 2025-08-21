@@ -12,6 +12,7 @@
             onlyoffice-desktopeditors
             osu-lazer-bin
             neovim
+            processing
             #  thunderbird
         ];
 
