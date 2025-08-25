@@ -46,6 +46,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       corefonts
+      nerd-fonts.hack
     ];
   };
 
@@ -104,6 +105,13 @@
     promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
   };
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  console.font = "hack";
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -119,12 +127,9 @@
     distrobox
     wayclip
   ];
+
   programs.steam.enable = true;
   programs.firefox.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   hardware.opentabletdriver = {
     enable = true;

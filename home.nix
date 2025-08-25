@@ -26,11 +26,13 @@
 
     programs = {
         home-manager.enable = true;
+
         git = {
             enable = true;
             userName = "jonasskounielsen";
             userEmail = "jonasskou.n@gmail.com";
         };
+
         vscode = {
             enable = true;
             package = pkgs.vscodium;
