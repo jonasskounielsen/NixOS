@@ -1,0 +1,3 @@
+function minesweeper() {
+    "$HOME"/minesweeper
+}
