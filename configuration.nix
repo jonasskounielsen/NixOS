@@ -43,7 +43,7 @@
   console.keyMap = "dk-latin1";
 
   fonts.packages = with pkgs; [
-    liberation_ttf
+    corefonts
   ];
 
   services.printing.enable = true;
