@@ -110,8 +110,6 @@
     defaultEditor = true;
   };
 
-  console.font = "hack";
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
