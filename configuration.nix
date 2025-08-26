@@ -32,7 +32,6 @@
     LC_TIME = "da_DK.UTF-8";
   };
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
@@ -42,9 +41,19 @@
   };
   console.keyMap = "dk-latin1";
 
-  fonts.packages = with pkgs; [
-    corefonts
-  ];
+  fonts = {
+    fontDir.enable = true;
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      corefonts
+      nerd-fonts.hack
+    ];
+  };
+
+  fileSystems."/usr/share/fonts" = {
+    device = "/run/current-system/sw/share/X11/fonts";
+    options = [ "bind" ];
+  };
 
   services.printing.enable = true;
 
@@ -96,9 +105,12 @@
     promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
   };
 
-  programs.steam.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
-  programs.firefox.enable = true;
+  console.font = "hack";
 
   nixpkgs.config.allowUnfree = true;
 
@@ -113,7 +125,11 @@
     tuxclocker
     rclone
     distrobox
+    wayclip
   ];
+
+  programs.steam.enable = true;
+  programs.firefox.enable = true;
 
   hardware.opentabletdriver = {
     enable = true;
