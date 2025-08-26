@@ -110,8 +110,6 @@
     defaultEditor = true;
   };
 
-  console.font = "hack";
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -126,6 +124,7 @@
     rclone
     distrobox
     wayclip
+    virtiofsd
   ];
 
   programs.steam.enable = true;
