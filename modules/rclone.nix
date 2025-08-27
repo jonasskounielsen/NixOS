@@ -10,7 +10,7 @@ let
       ExecStart = ''
         ${pkgs.rclone}/bin/rclone mount \
           ${remoteName}:${remotePath} ${mountDir} \
-          --config ${homeDir}/.config/rclone/rclone.conf \
+          --config ${config.sops.secrets.rclone.path} \
           --vfs-cache-mode=writes \
           --allow-other
       '';

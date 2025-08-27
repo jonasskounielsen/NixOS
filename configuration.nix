@@ -5,6 +5,17 @@
     ./modules/rclone.nix
   ];
 
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/jonas/.config/sops/age/private_key.txt";
+    secrets.rclone = {
+      owner = "jonas";
+    };
+  };
+
+
+
   nix.registry.system = {
     from = {
       type = "indirect";
@@ -125,6 +136,7 @@
     distrobox
     wayclip
     virtiofsd
+    sops
   ];
 
   programs.steam.enable = true;

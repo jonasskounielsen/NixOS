@@ -5,9 +5,10 @@
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+        sops-nix.url =  "github:Mic92/sops-nix";
     };
 
-    outputs = { self, nixpkgs, home-manager, ...}:
+    outputs = { self, nixpkgs, home-manager, sops-nix, ...}:
         let
             lib = nixpkgs.lib;
             system = "x86_64-linux";
@@ -19,6 +20,7 @@
                     home-manager.useUserPackages = true;
                     home-manager.users.jonas = ./home.nix;
                 }
+                sops-nix.nixosModules.sops
             ];
         in {
         nixosConfigurations = {
