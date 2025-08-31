@@ -14,8 +14,6 @@
     };
   };
 
-
-
   nix.registry.system = {
     from = {
       type = "indirect";
