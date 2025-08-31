@@ -14,8 +14,6 @@
     };
   };
 
-
-
   nix.registry.system = {
     from = {
       type = "indirect";
@@ -45,6 +43,8 @@
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  services.flatpak.enable = true;
 
   services.xserver.xkb = {
     layout = "dk";
