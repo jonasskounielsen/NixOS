@@ -107,6 +107,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/libvirt/qemu/win11.xml - - - - ${./vms/win11.xml}"
+  ];
+
   programs.bash = {
     interactiveShellInit =
       (builtins.readFile ./scripts/load_devshells.sh) +
