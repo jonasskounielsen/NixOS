@@ -3,11 +3,11 @@ let
   inherit (pkgs) lib;
   homeDir = config.users.users.jonas.home;
   rclone-service = remoteName: remotePath: mountDir: extraOptions: {
-    description = "Rclone automount of Onedrive-skole";
+    description = "Rclone automount of ${remoteName}:${remotePath}";
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
     serviceConfig = {
-      Type = "notify";
+      Type = "exec";
       ExecStart = ''
         ${pkgs.rclone}/bin/rclone mount \
           ${remoteName}:${remotePath} ${mountDir} \
@@ -40,5 +40,5 @@ in
     "Onedrive-skole"
     "/images"
     "/var/lib/libvirt/images"
-    [ "--vfs-cache-mode=full" "--allow-non-empty"];
+    [ "--vfs-cache-mode=full" "--allow-non-empty" "--vfs-write-back 1s" ];
 }
