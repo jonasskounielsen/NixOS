@@ -7,7 +7,7 @@ let
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
     serviceConfig = {
-      Type = "exec";
+      Type = "notify";
       ExecStart = ''
         ${pkgs.rclone}/bin/rclone mount \
           ${remoteName}:${remotePath} ${mountDir} \
@@ -34,11 +34,4 @@ in
     "/"
     "${homeDir}/Onedrive-personlig"
     [ "--vfs-cache-mode=writes" ];
-
-  systemd.services."rclone-vm-images" =
-    rclone-service
-    "Onedrive-skole"
-    "/images"
-    "/var/lib/libvirt/images"
-    [ "--vfs-cache-mode=full" "--allow-non-empty" "--vfs-write-back 1s" ];
 }
