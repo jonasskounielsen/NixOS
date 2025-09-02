@@ -13,6 +13,7 @@
             osu-lazer-bin
             neovim
             processing
+            prismlauncher
             #  thunderbird
         ];
 
