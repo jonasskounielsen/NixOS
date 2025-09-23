@@ -131,7 +131,8 @@
     extremetuxracer
     kdePackages.kate
     git
-    nil
+    nixd
+    nixfmt-rfc-style
     wget
     yazi
     opentabletdriver

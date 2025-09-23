@@ -1,23 +1,28 @@
 { pkgs }:
 let
-    unfreePkgs = import pkgs.path {
-        inherit (pkgs) system overlays;
-        config = pkgs.config // { allowUnfree = true; };
+  unfreePkgs = import pkgs.path {
+    inherit (pkgs) system overlays;
+    config = pkgs.config // {
+      allowUnfree = true;
     };
-    inherit (pkgs) lib;
+  };
+  inherit (pkgs) lib;
 in
 pkgs.mkShell {
-    nativeBuildInputs = with pkgs; [
-        cargo
-        rustc
-        rustfmt
-        rustPackages.clippy
-        libgcc
-        gdb
-    ] ++ (with unfreePkgs; [
-        steam-run
+  nativeBuildInputs =
+    with pkgs;
+    [
+      cargo
+      rustc
+      rustfmt
+      rustPackages.clippy
+      libgcc
+      gdb
+    ]
+    ++ (with unfreePkgs; [
+      steam-run
     ]);
-    LD_LIBRARY_PATH = lib.makeLibraryPath [
-        pkgs.stdenv.cc.cc
-    ];
+  LD_LIBRARY_PATH = lib.makeLibraryPath [
+    pkgs.stdenv.cc.cc
+  ];
 }

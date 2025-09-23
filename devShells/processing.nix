@@ -1,10 +1,10 @@
 { pkgs }:
 
 pkgs.mkShell {
-    nativeBuildInputs = with pkgs; [
-        cargo
-        rustc
-        rustfmt
-        rustPackages.clippy
-    ];
+  nativeBuildInputs = with pkgs; [
+    cargo
+    rustc
+    rustfmt
+    rustPackages.clippy
+  ];
 }
