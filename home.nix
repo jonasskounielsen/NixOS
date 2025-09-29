@@ -14,6 +14,7 @@
       neovim
       processing
       prismlauncher
+      signal-desktop
       #  thunderbird
     ];
 
