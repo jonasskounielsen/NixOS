@@ -1,9 +1,8 @@
 { /*config,*/ pkgs, ... }:
 {
-  imports =
-  [
-    ./modules/rclone.nix
-  ];
+  imports = map
+    (module: "${./modules}/${module}")
+    (builtins.attrNames (builtins.readDir ./modules));
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
