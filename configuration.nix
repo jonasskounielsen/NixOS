@@ -51,20 +51,6 @@
   };
   console.keyMap = "dk-latin1";
 
-  fonts = {
-    fontDir.enable = true;
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      corefonts
-      nerd-fonts.hack
-    ];
-  };
-
-  fileSystems."/usr/share/fonts" = {
-    device = "/run/current-system/sw/share/X11/fonts";
-    options = [ "bind" ];
-  };
-
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
