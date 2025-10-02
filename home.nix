@@ -19,6 +19,7 @@
       processing
       prismlauncher
       signal-desktop
+      zotero
       #  thunderbird
     ];
 

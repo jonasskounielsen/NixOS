@@ -72,7 +72,7 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "libvirtd" "ydotool" ];
     packages = [ /* in home.nix */ ];
   };
 
