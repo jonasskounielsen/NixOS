@@ -18,6 +18,6 @@
   };
 
   systemd.tmpfiles.rules = [
-    "L+ /var/lib/libvirt/qemu/win11.xml - - - - ${./vms/win11.xml}"
+    "L+ /var/lib/libvirt/qemu/win11.xml - - - - ${./virtualisation/win11.xml}"
   ];
 }

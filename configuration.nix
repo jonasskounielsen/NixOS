@@ -2,7 +2,9 @@
 {
   imports = map
     (module: "${./modules}/${module}")
-    (builtins.attrNames (builtins.readDir ./modules));
+    (builtins.filter (
+      item: (builtins.readDir ./modules).${item} == "regular"
+    ) (builtins.attrNames (builtins.readDir ./modules)));
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
