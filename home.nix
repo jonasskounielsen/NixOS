@@ -15,7 +15,6 @@
       bitwarden-desktop
       onlyoffice-desktopeditors
       osu-lazer-bin
-      neovim
       processing
       prismlauncher
       signal-desktop
