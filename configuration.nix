@@ -3,6 +3,7 @@
   imports =
   [
     ./modules/rclone.nix
+    ./modules/keyd.nix
   ];
 
   sops = {
@@ -85,7 +86,7 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "libvirtd" "ydotool" ];
     packages = [ /* in home.nix */ ];
   };
 
@@ -97,7 +98,9 @@
     libvirtd.qemu = {
       swtpm.enable = true;
       ovmf.enable = true;
-      ovmf.packages = [ pkgs.OVMFFull.fd ];
+      ovmf.packages = [
+        pkgs.OVMFFull.fd
+      ];
     };
     spiceUSBRedirection.enable = true;
 
