@@ -1,10 +1,8 @@
 { /*config,*/ pkgs, ... }:
 {
-  imports =
-  [
-    ./modules/rclone.nix
-    ./modules/keyd.nix
-  ];
+  imports = map
+    (module: "${./modules}/${module}")
+    (builtins.attrNames (builtins.readDir ./modules));
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
@@ -53,20 +51,6 @@
   };
   console.keyMap = "dk-latin1";
 
-  fonts = {
-    fontDir.enable = true;
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      corefonts
-      nerd-fonts.hack
-    ];
-  };
-
-  fileSystems."/usr/share/fonts" = {
-    device = "/run/current-system/sw/share/X11/fonts";
-    options = [ "bind" ];
-  };
-
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
@@ -90,34 +74,9 @@
     packages = [ /* in home.nix */ ];
   };
 
-  # Virtualization settings from https://www.youtube.com/watch?v=rCVW8BGnYIc and https://nixos.wiki/wiki/Virt-manager.
-  programs.virt-manager.enable = true;
-
-  virtualisation = {
-    libvirtd.enable = true;
-    libvirtd.qemu = {
-      swtpm.enable = true;
-      ovmf.enable = true;
-      ovmf.packages = [
-        pkgs.OVMFFull.fd
-      ];
-    };
-    spiceUSBRedirection.enable = true;
-
-    podman = {
-      enable = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
-  systemd.tmpfiles.rules = [
-    "L+ /var/lib/libvirt/qemu/win11.xml - - - - ${./vms/win11.xml}"
-  ];
-
   programs.bash = {
     interactiveShellInit =
       (builtins.readFile ./scripts/load_devshells.sh) +
-      (builtins.readFile ./scripts/maple_shortcut.sh) +
       (builtins.readFile ./scripts/minesweeper_shortcut.sh) +
       (builtins.readFile ./scripts/yazi_cd.sh);
     promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
@@ -126,6 +85,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    vimAlias = true;
+    viAlias = true;
   };
 
   nixpkgs.config.allowUnfree = true;
