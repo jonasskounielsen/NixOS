@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/20075955deac2583bb12f07151c2df830ef346b4";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -11,6 +12,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       sops-nix,
       ...
@@ -19,6 +21,7 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system; });
+      pkgs-stable = (import nixpkgs-stable { inherit system; });
       sharedModules = [
         home-manager.nixosModules.home-manager
         {
@@ -36,12 +39,18 @@
           modules = sharedModules ++ [
             ./desktop/configuration.nix
           ];
+          specialArgs = {
+            inherit pkgs-stable;
+          };
         };
         jonas-laptop = lib.nixosSystem {
           inherit system;
           modules = sharedModules ++ [
             ./laptop/configuration.nix
           ];
+          specialArgs = {
+            inherit pkgs-stable;
+          };
         };
       };
       
