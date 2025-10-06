@@ -1,6 +1,37 @@
 { pkgs, ... }: {
   programs.kitty = {
     enable = true;
+    settings = {
+      font_family = "Monocraft"; # Does not work, probably because Minecraftia is not monospace.
+      bold_font = "Monocraft";
+      italic_font = "Monocraft";
+      bold_italic_font = "Monocraft";
 
+      background          = "#191919";
+      foreground          = "#776b53";
+      cursor              = "#fac814";
+      selection_background= "#776b53";
+      color0              = "#321200";
+      color8              = "#423625";
+      color1              = "#b1270e";
+      color9              = "#ed5c20";
+      color2              = "#44a900";
+      color10             = "#55f237";
+      color3              = "#a9810b";
+      color11             = "#f1b731";
+      color4              = "#578499";
+      color12             = "#85cfec";
+      color5              = "#96363c";
+      color13             = "#e04b5a";
+      color6              = "#b2591d";
+      color14             = "#f07c14";
+      color7              = "#776b53";
+      color15             = "#ffc800";
+      selection_foreground= "#191919";
+      active_tab_foreground = "#eeeeee";
+      active_tab_background = "#776b53";
+      inactive_tab_foreground= "#776b53";
+      inactive_tab_background= "#141414";
+    };
   };
 }

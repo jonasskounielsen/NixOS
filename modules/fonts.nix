@@ -5,6 +5,8 @@
     packages = with pkgs; [
       corefonts
       nerd-fonts.hack
+      minecraftia
+      monocraft
     ];
   };
 
