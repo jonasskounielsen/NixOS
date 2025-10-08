@@ -1,8 +1,31 @@
 { pkgs, ... }: {
   programs.kitty = {
     enable = true;
+    shellIntegration = {
+      enableBashIntegration = true; # does not work
+      mode = "enable";
+    };
+
     settings = {
+      repaint_delay = 6;
+
+      wayland_enable_ime = "no";
+      
+      remember_window_size  = "no";
+      initial_window_width  = "640";
+      initial_window_height = "400";
+
+      tab_bar_edge        = "top";
+      tab_bar_style       = "separator";
+      tab_separator       = "' | '";
+      tab_bar_align       = "center";
+      tab_activity_symbol = "(!)";
+
+      scrollbar       = "always";
+      scrollbar_width = 1;
+
       clear_all_shortcuts = "yes";
+      
       "map ctrl+shift+c" = "copy_to_clipboard";
       "map ctrl+shift+v" = "paste_from_clipboard";
 
@@ -10,19 +33,26 @@
       "map ctrl+shift+j" = "scroll_line_down";
       "map ctrl+shift+page_up"   = "scroll_page_up";
       "map ctrl+shift+page_down" = "scroll_page_down";
+      "map ctrl+alt+k" = "scroll_page_up";
+      "map ctrl+alt+j" = "scroll_page_down";
       "map ctrl+shift+home" = "scroll_home";
       "map ctrl+shift+end"  = "scroll_end";
 
       "map ctrl+shift+t" = "launch --type tab --cwd current --location neighbor";
       "map ctrl+alt+t"   = "launch --type tab --location neighbor";
+      #"map ctrl+shift+y" = "launch --type tab --cwd current --location neighbor y";
+      #"map ctrl+alt+y"   = "launch --type tab --location neighbor y";
       "map ctrl+shift+h" = "previous_tab";
       "map ctrl+shift+l" = "next_tab";
       "map ctrl+shift+w" = "close_window";
+      "map ctrl+alt+w"   = "close_os_window";
       
       font_family      = "Monocraft";
       bold_font        = "Monocraft";
       italic_font      = "Monocraft";
       bold_italic_font = "Monocraft";
+
+      font_size = 7;
 
       background              = "#191919";
       foreground              = "#776b53";
