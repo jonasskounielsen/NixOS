@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
   imports = map
     (module: "${./homeModules}/${module}")
@@ -19,6 +19,7 @@
       prismlauncher
       signal-desktop
       zotero
+      self.packages.${system}.minesweeper
       #  thunderbird
     ];
 

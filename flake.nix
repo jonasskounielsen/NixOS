@@ -11,6 +11,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-stable,
       home-manager,
@@ -25,9 +26,12 @@
       sharedModules = [
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.jonas = ./home.nix;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.jonas = ./home.nix;
+            extraSpecialArgs = { inherit self system; };
+          };
         }
         sops-nix.nixosModules.sops
       ];
@@ -67,5 +71,7 @@
           }
         ) (builtins.attrNames (builtins.readDir ./devShells))
       );
+
+      packages.${system}.minesweeper = import ./packages/minesweeper.nix { inherit pkgs; };
     };
 }
