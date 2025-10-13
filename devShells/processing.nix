@@ -1,5 +1,4 @@
 { pkgs }:
-
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     cargo
@@ -7,4 +6,5 @@ pkgs.mkShell {
     rustfmt
     rustPackages.clippy
   ];
+  RUST_BACKTRACE = 1;
 }

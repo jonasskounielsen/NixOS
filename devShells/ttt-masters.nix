@@ -10,8 +10,7 @@ let
 in
 pkgs.mkShell {
   nativeBuildInputs =
-    with pkgs;
-    [
+    with pkgs; [
       cargo
       rustc
       rustfmt
@@ -22,6 +21,7 @@ pkgs.mkShell {
     ++ (with unfreePkgs; [
       steam-run
     ]);
+  RUST_BACKTRACE = 1;
   LD_LIBRARY_PATH = lib.makeLibraryPath [
     pkgs.stdenv.cc.cc
   ];
