@@ -12,6 +12,7 @@
           "git.enableSmartCommit" = true;
           "explorer.confirmDelete" = false;
           "rust-analyzer.diagnostics.styleLints.enable" = true;
+          "rust-analyzer.check.command" = "clippy";
           "terminal.integrated.tabs.enabled" = false;
           "explorer.confirmDragAndDrop" = false;
           "workbench.colorTheme" = "Monokai";
