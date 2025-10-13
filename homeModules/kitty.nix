@@ -2,7 +2,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration = {
-      enableBashIntegration = true; # does not work
+      enableBashIntegration = true; # Does not work
       mode = "enable";
     };
 
@@ -46,14 +46,14 @@
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
 
-      "ctrl+shift+k" = "scroll_line_up";
-      "ctrl+shift+j" = "scroll_line_down";
+      "ctrl+shift+k"         = "scroll_line_up";
+      "ctrl+shift+j"         = "scroll_line_down";
       "ctrl+shift+page_up"   = "scroll_page_up";
       "ctrl+shift+page_down" = "scroll_page_down";
-      "ctrl+alt+k" = "scroll_page_up";
-      "ctrl+alt+j" = "scroll_page_down";
-      "ctrl+shift+home" = "scroll_home";
-      "ctrl+shift+end"  = "scroll_end";
+      "ctrl+alt+k"           = "remote_control scroll-window 0.5p-";
+      "ctrl+alt+j"           = "remote_control scroll-window 0.5p";
+      "ctrl+shift+home"      = "scroll_home";
+      "ctrl+shift+end"       = "scroll_end";
 
       "ctrl+shift+t" = "launch --type tab --cwd current --location neighbor";
       "ctrl+alt+t"   = "launch --type tab --location neighbor";
