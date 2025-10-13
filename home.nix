@@ -2,7 +2,9 @@
 {
   imports = map
     (module: "${./homeModules}/${module}")
-    (builtins.attrNames (builtins.readDir ./homeModules));
+    (builtins.filter (
+      item: (builtins.readDir ./homeModules).${item} == "regular"
+    ) (builtins.attrNames (builtins.readDir ./homeModules)));
 
   home = {
     username = "jonas";
