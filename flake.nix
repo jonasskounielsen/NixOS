@@ -7,15 +7,17 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       nixpkgs-stable,
       home-manager,
       sops-nix,
+      nix-vscode-extensions,
       ...
     }:
     let
@@ -30,7 +32,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.jonas = ./home.nix;
-            extraSpecialArgs = { inherit self system; };
+            extraSpecialArgs = inputs;
           };
         }
         sops-nix.nixosModules.sops

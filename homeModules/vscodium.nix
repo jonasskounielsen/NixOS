@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, nix-vscode-extensions, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -67,7 +67,7 @@
         extensions = with pkgs.vscode-extensions; [
           usernamehw.errorlens
           asvetliakov.vscode-neovim
-        ]; # apparently home manager creates a broken extensions dir if there are no extensions
+        ]; # Apparently home manager creates a broken extensions dir if there are no extensions
       in
       {
         rust = {
@@ -116,6 +116,9 @@
             extensions
             ++ (with pkgs.vscode-extensions; [
               jnoortheen.nix-ide
+            ])
+            ++ (with nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
+              kdl-org.kdl
             ]);
         };
       };
