@@ -1,19 +1,10 @@
-{ /*config,*/ pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = map
     (module: "${./modules}/${module}")
     (builtins.filter (
       item: (builtins.readDir ./modules).${item} == "regular"
     ) (builtins.attrNames (builtins.readDir ./modules)));
-
-  sops = {
-    defaultSopsFile = ./secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/jonas/.config/sops/age/private_key.txt";
-    secrets.rclone = {
-      owner = "jonas";
-    };
-  };
 
   nix.registry.system = {
     from = {
