@@ -1,14 +1,14 @@
-{ pkgs-stable, ... }: {
+{ pkgs-20075955, ... }: {
   # Virtualization settings from https://www.youtube.com/watch?v=rCVW8BGnYIc and https://nixos.wiki/wiki/Virt-manager.
   programs.virt-manager.enable = true;
 
   virtualisation = {
     libvirtd.enable = true;
     libvirtd.qemu = {
-      package = pkgs-stable.qemu;
+      package = pkgs-20075955.qemu;
       swtpm.enable = true;
       ovmf.enable = true;
-      ovmf.packages = [ pkgs-stable.OVMFFull.fd ]; # Newer versions of OVMFFull do not work; gives missing EFI firmware error
+      ovmf.packages = [ pkgs-20075955.OVMFFull.fd ]; # Newer versions of OVMFFull do not work; give missing EFI firmware error
     };
     spiceUSBRedirection.enable = true;
 
