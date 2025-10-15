@@ -92,7 +92,6 @@
     nixd
     nixfmt-rfc-style
     wget
-    yazi
     opentabletdriver
     tuxclocker
     rclone
