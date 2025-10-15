@@ -69,9 +69,9 @@
           in
           {
             inherit name;
-            value = import "${./devShells}/${fileName}" { inherit pkgs; };
+            value = import "${./dev-shells}/${fileName}" { inherit pkgs; };
           }
-        ) (builtins.attrNames (builtins.readDir ./devShells))
+        ) (builtins.attrNames (builtins.readDir ./dev-shells))
       );
 
       packages.${system}.minesweeper = import ./packages/minesweeper.nix { inherit pkgs; };

@@ -1,10 +1,10 @@
 { pkgs, self, ... }:
 {
   imports = map
-    (module: "${./homeModules}/${module}")
+    (module: "${./home-modules}/${module}")
     (builtins.filter (
-      item: (builtins.readDir ./homeModules).${item} == "regular"
-    ) (builtins.attrNames (builtins.readDir ./homeModules)));
+      item: (builtins.readDir ./home-modules).${item} == "regular"
+    ) (builtins.attrNames (builtins.readDir ./home-modules)));
 
   home = {
     username = "jonas";
