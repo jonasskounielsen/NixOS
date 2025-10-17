@@ -15,6 +15,8 @@
       initial_window_width  = "640";
       initial_window_height = "400";
 
+      single_window_margin_width = 1;
+
       tab_bar_edge         = "top";
       tab_bar_style        = "separator";
       tab_separator        = "' | '";
