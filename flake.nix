@@ -45,8 +45,9 @@
           modules = sharedModules ++ [
             ./desktop/configuration.nix
           ];
-          specialArgs = {
+          specialArgs = inputs // {
             inherit pkgs-20075955;
+            host = "desktop";
           };
         };
         jonas-laptop = lib.nixosSystem {
@@ -54,8 +55,9 @@
           modules = sharedModules ++ [
             ./laptop/configuration.nix
           ];
-          specialArgs = {
+          specialArgs = inputs // {
             inherit pkgs-20075955;
+            host = "laptop";
           };
         };
       };
