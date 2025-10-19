@@ -18,13 +18,14 @@
           main = {
             capslock = "esc";
             esc = "capslock";
+            meta = "overload(meta, M-n)"; # meta+n is bound to fuzzel in niri
           };
           altgr = {
             #"1" = "string °";
             #"'" = "string ′";
             #"-" = "string –";
             
-            "a" = "macro(abc)";
+            "a" = "macro(β)";
             #"b" = "string β";
             #"c" = "string χ";
             #"d" = "string δ";
@@ -44,10 +45,10 @@
             #"q" = "";
             #"r" = "string ρ";
             #"s" = "string σ";
-            #"t" = "string τ";
+            #"t" = "string τ";in
             #"u" = "string ω";
             #"v" = "";
-            #"w" = "string ψ";
+            #"w" = "string ψ";in
             #"x" = "string ξ";
             #"y" = "string υ";
             #"z" = "string ζ";

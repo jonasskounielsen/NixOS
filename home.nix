@@ -22,6 +22,14 @@
       signal-desktop
       zotero
       self.packages.${system}.minesweeper
+      fuzzel
+      # nirius
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+      gnome-keyring
+      kdePackages.polkit-kde-agent-1
+      xwayland-satellite
+      xdg-desktop-portal-termfilechooser
       #  thunderbird
     ];
 

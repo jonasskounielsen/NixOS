@@ -34,9 +34,14 @@
   };
 
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
-  
   programs.niri.enable = true;
+
+  services.displayManager.sessionPackages = with pkgs; [
+    kdePackages.plasma-workspace
+    niri
+  ];
 
   services.flatpak.enable = true;
 
@@ -99,6 +104,7 @@
     wayclip
     virtiofsd
     sops
+    brightnessctl
   ];
 
   programs.steam.enable = true;
