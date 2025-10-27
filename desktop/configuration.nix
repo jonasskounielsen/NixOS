@@ -13,8 +13,8 @@
 
   networking.hostName = "jonas-desktop";
 
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "jonas";
+  #services.displayManager.autoLogin.enable = true;
+  #services.displayManager.autoLogin.user = "jonas";
 
   security.sudo.extraRules = [{
     users = ["jonas"];
