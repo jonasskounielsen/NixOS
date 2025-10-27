@@ -21,11 +21,7 @@ overview {
 }
 
 xwayland-satellite {
-    $XWAYLAND_SATELLITE_PATH
-}
-
-hotkey-overlay {
-    skip-at-startup
+    path "$XWAYLAND_SATELLITE_PATH"
 }
 
 animations {
