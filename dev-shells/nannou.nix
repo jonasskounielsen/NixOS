@@ -36,7 +36,6 @@ pkgs.mkShell {
   ]);
 
   shellHook = ''
-    echo "In Nannou dev shell"
     export RUST_BACKTRACE=1
   '';
 }
