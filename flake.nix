@@ -8,6 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nfv.url = "github:notashelf/nvf";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       home-manager,
       sops-nix,
       nix-vscode-extensions,
+      nvf,
       ...
     }:
     let
@@ -37,6 +39,11 @@
         }
         sops-nix.nixosModules.sops
       ];
+      nvfConfig = {
+        config = import ./nvf.nix (inputs // {
+          inherit pkgs;
+        });
+      };
     in
     {
       nixosConfigurations = {
@@ -76,6 +83,12 @@
         ) (builtins.attrNames (builtins.readDir ./dev-shells))
       );
 
-      packages.${system}.minesweeper = import ./packages/minesweeper.nix { inherit pkgs; };
+      packages.${system} = {
+        neovim = (nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [ nvfConfig ];
+        }).neovim;
+        minesweeper = import ./packages/minesweeper.nix { inherit pkgs; };
+      };
     };
 }
