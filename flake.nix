@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nfv.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs =
