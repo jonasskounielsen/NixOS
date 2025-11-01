@@ -7,8 +7,6 @@
     libvirtd.qemu = {
       package = pkgs-20075955.qemu;
       swtpm.enable = true;
-      ovmf.enable = true;
-      ovmf.packages = [ pkgs-20075955.OVMFFull.fd ]; # Newer versions of OVMFFull do not work; give missing EFI firmware error
     };
     spiceUSBRedirection.enable = true;
 
