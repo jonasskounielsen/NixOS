@@ -82,13 +82,6 @@
     promptInit = ''PS1="\n\[\e[38;5;46;1m\][(''${SHLVL})\u@\h:\w]\$\[\e[0m\] "'';
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [

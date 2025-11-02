@@ -66,7 +66,7 @@
         ];
         extensions = with pkgs.vscode-extensions; [
           usernamehw.errorlens
-          asvetliakov.vscode-neovim
+          #asvetliakov.vscode-neovim
         ]; # Apparently home manager creates a broken extensions dir if there are no extensions
       in
       {

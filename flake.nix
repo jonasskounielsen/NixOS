@@ -28,6 +28,7 @@
       pkgs = (import nixpkgs { inherit system; });
       pkgs-20075955 = (import nixpkgs-20075955 { inherit system; });
       sharedModules = [
+        nvf.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -39,11 +40,6 @@
         }
         sops-nix.nixosModules.sops
       ];
-      nvfConfig = {
-        config = import ./nvf.nix (inputs // {
-          inherit pkgs;
-        });
-      };
     in
     {
       nixosConfigurations = {
@@ -84,10 +80,6 @@
       );
 
       packages.${system} = {
-        neovim = (nvf.lib.neovimConfiguration {
-          inherit pkgs;
-          modules = [ nvfConfig ];
-        }).neovim;
         minesweeper = import ./packages/minesweeper.nix { inherit pkgs; };
       };
     };
