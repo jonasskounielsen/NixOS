@@ -22,7 +22,6 @@
       signal-desktop
       zotero
       self.packages.${system}.minesweeper
-      fuzzel
       # nirius
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
