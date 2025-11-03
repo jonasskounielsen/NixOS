@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   environment.variables = {
     EDITOR = "nvim";
   };
@@ -30,7 +30,7 @@
       };
 
       lsp = {
-        enable = true;        
+        enable = true;
         inlayHints.enable = true;
         lightbulb.enable = true;
         lspkind.enable = true;
@@ -53,7 +53,7 @@
 
       options = {
         shiftwidth = 0;
-        tabstop = 2; # TODO: differentiate between languages
+        tabstop = 2;
       };
 
       statusline = {
@@ -67,10 +67,35 @@
         indent-blankline.enable = true;
       };
 
-      #theme = {
-      #  enable = true;
-      #  
-      #};
+      extraPlugins = with pkgs.vimPlugins; {
+        melange = {
+          package = melange-nvim;
+          setup = "vim.cmd.colorscheme 'melange'";
+        };
+      };
+
+     #theme = {
+     #  enable = true;
+     #  name = "base16";
+     #  base16-colors = {
+     #    base00 = "#191919";
+     #    base01 = "#b1270e";
+     #    base02 = "#44a900";
+     #    base03 = "#a9810b";
+     #    base04 = "#578499";
+     #    base05 = "#776b53";
+     #    base06 = "#b2591d";
+     #    base07 = "#776b53";
+     #    base08 = "#423625";
+     #    base09 = "#ed5c20";
+     #    base0A = "#55f237";
+     #    base0B = "#f1b731";
+     #    base0C = "#85cfec";
+     #    base0D = "#e04b5a";
+     #    base0E = "#f07c14";
+     #    base0F = "#ffc800";
+     #  };
+     #};
 
       utility = {
         multicursors.enable = true;
