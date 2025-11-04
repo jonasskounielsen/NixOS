@@ -1,5 +1,6 @@
 { pkgs, self, ... }:
 {
+  # Import all files in ./home-modules/ as modules.
   imports = map
     (module: "${./home-modules}/${module}")
     (builtins.filter (

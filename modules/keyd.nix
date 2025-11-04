@@ -5,6 +5,8 @@
     group = "ydotool";
   };
 
+  users.users.jonas.extraGroups = [ "ydotool" ];
+
   environment.variables = {
     YDOOTOL_SOCKET = "/run/ydotoold/socket";
   };
@@ -18,7 +20,7 @@
           main = {
             capslock = "esc";
             esc = "capslock";
-            meta = "overload(meta, M-n)"; # meta+n is bound to fuzzel in niri
+            meta = "overload(meta, M-n)"; # meta+n is bound to fuzzel in niri.
           };
           altgr = {
             #"1" = "string °";

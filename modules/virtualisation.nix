@@ -2,6 +2,8 @@
   # Virtualization settings from https://www.youtube.com/watch?v=rCVW8BGnYIc and https://nixos.wiki/wiki/Virt-manager.
   programs.virt-manager.enable = true;
 
+  users.users.jonas.extraGroups = [ "libvirtd" ];
+
   virtualisation = {
     libvirtd.enable = true;
     libvirtd.qemu = {
