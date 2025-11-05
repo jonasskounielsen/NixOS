@@ -41,13 +41,5 @@
     stateVersion = "24.11";
   };
 
-  programs = {
-    home-manager.enable = true;
-
-    git = {
-      enable = true;
-      userName = "jonasskounielsen";
-      userEmail = "jonasskou.n@gmail.com";
-    };
-  };
+  programs.home-manager.enable = true;
 }
