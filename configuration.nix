@@ -67,8 +67,6 @@
     daemon.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default

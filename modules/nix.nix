@@ -1,5 +1,7 @@
 { ... }:
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   nix.registry.system = {
     from = {
       type = "indirect";
