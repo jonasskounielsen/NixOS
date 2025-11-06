@@ -27,6 +27,13 @@
         lua = {
           enable = true;
         };
+        typst = {
+          enable = true;
+          extensions = {
+            typst-concealer.enable = true;
+            typst-preview-nvim.enable = true;
+          };
+        };
       };
 
       lsp = {
