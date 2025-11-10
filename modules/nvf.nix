@@ -9,6 +9,10 @@
       vimAlias = true;
       viAlias = true;
       
+      treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        kdl
+      ];
+
       languages = {
         enableTreesitter = true;
         rust = {
