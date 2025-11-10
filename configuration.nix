@@ -36,7 +36,7 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas Skou Nielsen";
-    extraGroups = [ "wheel" "networkmanager" "dialout" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" ];
     packages = [ /* in home.nix */ ];
   };
 
@@ -58,6 +58,8 @@
     sops
     brightnessctl
   ];
+
+  virtualisation.docker.enable = true; # For Winboat.
 
   programs.steam.enable = true;
   programs.firefox.enable = true;
