@@ -1,5 +1,8 @@
+{ pkgs, ...}:
+/* kdl */ ''
 window-rule {
     match app-id="kitty"
 
     default-column-width { proportion 0.3; }
 }
+''

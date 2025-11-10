@@ -1,4 +1,6 @@
-binds {
+{ pkgs, ... }:
+/* kdl */ ''
+binds 
     Mod+T                                repeat=false { spawn "kitty"; }
     Mod+N                                repeat=false { spawn "fuzzel"; }
     Mod+S                                repeat=false { spawn "swaylock"; }
@@ -110,11 +112,12 @@ binds {
 
     Mod+E                                             { toggle-column-tabbed-display; }
 
-    XF86AudioRaiseVolume       allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume       allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute              allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute           allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume       allow-when-locked=true { spawn-sh "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume       allow-when-locked=true { spawn-sh "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute              allow-when-locked=true { spawn-sh "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute           allow-when-locked=true { spawn-sh "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86MonBrightnessUp        allow-when-locked=true { spawn ""/*BRIGHTNESSCTL_INCREASE*/; }
-    XF86MonBrightnessDown      allow-when-locked=true { spawn ""/*BRIGHTNESSCTL_DECREASE*/; }
+    XF86MonBrightnessUp        allow-when-locked=true { spawn-sh ""/*BRIGHTNESSCTL_INCREASE*/; }
+    XF86MonBrightnessDown      allow-when-locked=true { spawn-sh ""/*BRIGHTNESSCTL_DECREASE*/; }
 }
+''

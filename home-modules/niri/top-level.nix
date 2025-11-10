@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+/* kdl */ ''
 spawn-at-startup "waybar"
 
 hotkey-overlay {
@@ -21,7 +23,7 @@ overview {
 }
 
 xwayland-satellite {
-    path "$XWAYLAND_SATELLITE_PATH"
+    path "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
 }
 
 animations {
@@ -33,3 +35,4 @@ gestures {
         off
     }
 }
+''

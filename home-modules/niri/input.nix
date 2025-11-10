@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+/* kdl */ ''
 input {
     keyboard {
         xkb {
@@ -22,3 +24,4 @@ input {
 
     workspace-auto-back-and-forth
 }
+''

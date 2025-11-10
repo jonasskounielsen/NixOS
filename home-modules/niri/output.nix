@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+/* kdl */ ''
 output "Sharp Corporation 0x149A Unknown" {
     mode "1920x1080@59.999"
 
@@ -29,5 +31,4 @@ output "PNP(OEM) 22W_LCD_TV Unknown" {
 
     //position x=0 y=2160
 }
-
-
+''

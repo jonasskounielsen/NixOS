@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+/* kdl */ ''
 layout {
     gaps 1
 
@@ -45,3 +47,4 @@ layout {
         active-color "#00ff00ff"
     }
 }
+''
