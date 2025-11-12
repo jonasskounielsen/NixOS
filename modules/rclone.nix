@@ -11,7 +11,7 @@ let
       ExecStart = ''
         ${pkgs.rclone}/bin/rclone mount \
           ${remoteName}:${remotePath} ${mountDir} \
-          --config ${config.sops.secrets.rclone.path} \
+          --config ${config.sops.templates.rclone.path} \
           --allow-other \
           ${lib.concatStringsSep " \\\n" extraOptions}
       '';
