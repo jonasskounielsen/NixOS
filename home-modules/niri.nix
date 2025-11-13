@@ -1,4 +1,4 @@
-{ lib, ... }@inputs:
+{ pkgs, lib, ... }@inputs:
 let
   niriDir = builtins.readDir ./niri;
   mapFn = name: value: import "${./niri}/${name}" inputs;
