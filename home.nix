@@ -31,7 +31,6 @@
       xwayland-satellite
       xdg-desktop-portal-termfilechooser
       #  thunderbird
-      winboat
     ];
 
     sessionVariables = {

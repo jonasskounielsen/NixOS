@@ -2,6 +2,8 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixpkgs.config.allowUnfree = true;
+
   nix.registry.system = {
     from = {
       type = "indirect";

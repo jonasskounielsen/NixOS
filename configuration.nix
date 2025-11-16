@@ -40,8 +40,6 @@
     packages = [ /* in home.nix */ ];
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     extremetuxracer
     kdePackages.kate
@@ -58,8 +56,6 @@
     sops
     brightnessctl
   ];
-
-  virtualisation.docker.enable = true; # For Winboat.
 
   programs.steam.enable = true;
   programs.firefox.enable = true;
