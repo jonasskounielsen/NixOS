@@ -15,6 +15,9 @@
       hashedPassword = {
         neededForUsers = true;
       };
+      jonasSshPrivateKey = {
+        owner = config.users.users.jonas.name;
+      };
     };
     templates = {
       rclone = {
