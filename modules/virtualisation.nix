@@ -1,4 +1,4 @@
-{ pkgs-20075955, ... }: {
+{ pkgs, pkgs-20075955, ... }: {
   # Virtualization settings from https://www.youtube.com/watch?v=rCVW8BGnYIc and https://nixos.wiki/wiki/Virt-manager.
   programs.virt-manager.enable = true;
 
@@ -17,6 +17,10 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    virtiofsd
+  ];
 
   systemd.tmpfiles.rules = [
     "L+ /var/lib/libvirt/qemu/win11.xml - - - - ${./virtualisation/win11.xml}"

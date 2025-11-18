@@ -9,9 +9,12 @@
 
   networking.networkmanager.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services = {
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+  };
   services.desktopManager.plasma6.enable = true;
+
   programs.niri.enable = true;
   security.pam.services.sddm.kwallet.enable = true;
 
@@ -22,23 +25,7 @@
 
   services.flatpak.enable = true;
 
-  services.xserver.xkb = {
-    layout = "dk";
-    variant = "nodeadkeys";
-  };
-  console.keyMap = "dk-latin1";
-
   services.printing.enable = true;
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  users.users.jonas = {
-    isNormalUser = true;
-    description = "Jonas Skou Nielsen";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" ];
-    packages = [ /* in home.nix */ ];
-  };
 
   environment.systemPackages = with pkgs; [
     extremetuxracer
@@ -47,23 +34,13 @@
     nixd
     nixfmt-rfc-style
     wget
-    opentabletdriver
     tuxclocker
-    rclone
-    distrobox
     wayclip
-    virtiofsd
-    sops
     brightnessctl
   ];
 
   programs.steam.enable = true;
   programs.firefox.enable = true;
-
-  hardware.opentabletdriver = {
-    enable = true;
-    daemon.enable = true;
-  };
 
   services.openssh.enable = true;
 
