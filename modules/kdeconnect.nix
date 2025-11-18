@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    kdeconnect-kde
+    kdePackages.kdeconnect-kde
   ];
   networking.firewall = {
     # KDE Connect uses ports 1714-64
