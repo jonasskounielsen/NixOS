@@ -13,12 +13,10 @@
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       nixpkgs-20075955,
       home-manager,
       sops-nix,
-      nix-vscode-extensions,
       nvf,
       ...
     }:
@@ -28,6 +26,7 @@
       pkgs = (import nixpkgs { inherit system; });
       pkgs-20075955 = (import nixpkgs-20075955 { inherit system; });
       sharedModules = [
+        ./configuration.nix
         nvf.nixosModules.default
         home-manager.nixosModules.home-manager
         {
