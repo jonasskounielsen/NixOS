@@ -1,6 +1,10 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   # Edits secrets with: sudo SOPS_AGE_KEY_FILE=/etc/sops/age/private_key.txt sops edit secrets.yaml
+  environment.systemPackages = with pkgs; [
+    rclone
+  ];
+
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";

@@ -13,7 +13,6 @@
 
     packages = with pkgs; [
       kdePackages.plasma-browser-integration
-      kdePackages.kdeconnect-kde
       discord
       bitwarden-desktop
       onlyoffice-desktopeditors

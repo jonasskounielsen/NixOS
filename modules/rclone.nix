@@ -23,6 +23,10 @@ let
   };
 in
 {
+  environment.systemPackages = with pkgs; [
+    rclone
+  ];
+
   systemd.services."rclone-onedrive-skole" = rclone-service
     "Onedrive-skole"
     "/Fag"
