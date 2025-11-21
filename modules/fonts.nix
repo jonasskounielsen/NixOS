@@ -7,6 +7,7 @@
       nerd-fonts.hack
       minecraftia
       monocraft
+      font-awesome
     ];
   };
 
