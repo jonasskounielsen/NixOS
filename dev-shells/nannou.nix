@@ -35,7 +35,5 @@ pkgs.mkShell {
     mesa
   ]);
 
-  shellHook = ''
-    export RUST_BACKTRACE=1
-  '';
+  RUST_BACKTRACE = 1;
 }
