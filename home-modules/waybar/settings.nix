@@ -10,16 +10,61 @@
     ];
 
     modules-right = [
+      "network"
+      "bluetooth"
       "backlight"
       "pulseaudio"
-      "bluetooth"
-      "network"
       "battery"
     ];
 
     modules-left = [
       "niri/workspaces"
     ];
+    
+    backlight = {
+      format = "{icon}{percent}%";
+      format-icons = [
+        "󰃜 "
+        "󰃛 "
+        "󰃚 "
+      ];
+    };
+
+    bluetooth = {
+      format = "󰂯 {status} - Devices: {num_connections}";
+      format-disabled = "󰂲 {status}";
+      format-connected = "󰥰  {status} - Devices: {num_connections}";
+      format-connected-battery = "󰥰  status - {device_battery_percentage}% - Devices: {num_connections}";
+      on-click = "blueman-manager";
+    };
+
+    network = {
+      interval = 1;
+      family = "ipv4-6";
+      format = "{icon}{essid}";
+      format-alt = "{icon}{essid}";
+      format-wifi = "{icon}{essid} -  {bandwidthDownBits}   {bandwidthUpBits} ";
+      format-ethernet = "󰈀 {essid} -  {bandwidthDownBits}   {bandwidthUpBits} ";
+      format-disconnected = "󰤭 - No WIFI";
+      format-icons = [
+        "󰤯 "
+	"󰤟 "
+	"󰤢 "
+	"󰤥 "
+	"󰤨 "
+      ];
+    };
+
+    pulseaudio = {
+      format = "{icon} {volume}%";
+      format-bluetooth = "󰋎 {volume}%"; 
+      format-muted = "";
+      format-icons = [
+        "󰕿"
+        "󰖀"
+        "󰕾"
+      ];
+    };
 
     clock = {
       format = "{:%H:%M}";
@@ -42,18 +87,18 @@
     
       actions = {
         on-click-right = "mode";
-        on-click-forward = "tz_up";
-        on-click-backward = "tz_down";
-        on-scroll-up = "shift_up";
-        on-scroll-down = "shift_down";
+        on-click-forward = "tz-up";
+        on-click-backward = "tz-down";
+        on-scroll-up = "shift-up";
+        on-scroll-down = "shift-down";
       };
     };
 
     battery = {
       format = "{capacity}% {icon}";
       states = {
-        warning = 40;
-        critical = 20;
+        warning = 20;
+        critical = 10;
       };
       format-plugged = "{capacity}% 󰂄";
       format-icons = [
