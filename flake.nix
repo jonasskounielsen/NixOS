@@ -9,6 +9,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nvf.url = "github:notashelf/nvf";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs =

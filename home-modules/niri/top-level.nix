@@ -1,6 +1,7 @@
 { pkgs, ... }:
 /* kdl */ ''
 spawn-at-startup "waybar"
+spawn-sh-at-startup "(awww-daemon &) && sleep 0.3 && awww img '/home/jonas/Onedrive-personlig/Bilder/Screenshots/Skærmbillede 2024-08-23 210343.png'"
 
 hotkey-overlay {
     skip-at-startup
