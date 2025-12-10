@@ -1,4 +1,56 @@
 { pkgs, ... }:
+let
+  brightnessScript = direction: pkgs.writers.writeRust "brightness-script" { } /* rust */ ''
+    use std::process::Command;
+
+    const BRIGHTNESS_STEPS: [u32; 10] = [
+      0, 50, 150, 500, 1500, 5000, 15000, 50000, 150000, 500000,
+    ];
+
+    fn main() {
+        let current_brightness = Command::new("sh")
+            .arg("-c")
+            .arg("brightnessctl get")
+            .output()
+            .expect("Failed to get brightness");
+        if !current_brightness.status.success() {
+            panic!("Nonzero exit code getting brightness");
+        }
+        let current_brightness = String::from_utf8(current_brightness.stdout)
+            .expect("Failed to parse brightness value")
+            .trim()
+            .parse::<u32>()
+            .expect("Failed to parse brightness value");
+
+        let current_brightness_step = BRIGHTNESS_STEPS.iter()
+            .enumerate()
+            .find(|(index, step)| **step >= current_brightness)
+            .expect("Brightness value too high")
+            .0;
+
+        let new_brightness = match "${direction}" {
+            "up" => {
+                *BRIGHTNESS_STEPS
+                    .get(current_brightness_step + 1)
+                    .unwrap_or(&BRIGHTNESS_STEPS[current_brightness_step])
+            },
+            "down" => {
+                BRIGHTNESS_STEPS[current_brightness_step.saturating_sub(1)]
+            },
+            _ => unreachable!(),
+        };
+
+        Command::new("sh")
+            .arg("-c")
+            .arg(format!("brightnessctl set {}", new_brightness))
+            .status()
+            .expect("Failed to set brightness")
+            .success()
+            .then(|| ())
+            .ok_or_else(|| panic!("Nonzero exit code setting brightness"));
+    }
+  '';
+in
 /* kdl */ ''
 binds {
     Mod+T                                repeat=false { spawn "kitty"; }
@@ -117,7 +169,7 @@ binds {
     XF86AudioMute              allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute           allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86MonBrightnessUp        allow-when-locked=true { spawn-sh ""/*BRIGHTNESSCTL_INCREASE*/; }
-    XF86MonBrightnessDown      allow-when-locked=true { spawn-sh ""/*BRIGHTNESSCTL_DECREASE*/; }
+    XF86MonBrightnessUp        allow-when-locked=true { spawn-sh "${brightnessScript "up"}"; }
+    XF86MonBrightnessDown      allow-when-locked=true { spawn-sh "${brightnessScript "down"}"; }
 }
 ''
