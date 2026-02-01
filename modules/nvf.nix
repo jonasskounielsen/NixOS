@@ -19,7 +19,6 @@
           enable = true;
           crates = {
             enable = true;
-            codeActions = true;
           };
           dap.enable = true;
         };
