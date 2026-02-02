@@ -9,20 +9,6 @@
 
   networking.networkmanager.enable = true;
 
-  services = {
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-  };
-  services.desktopManager.plasma6.enable = true;
-
-  programs.niri.enable = true;
-  security.pam.services.sddm.kwallet.enable = true;
-
-  services.displayManager.sessionPackages = with pkgs; [
-    kdePackages.plasma-workspace
-    niri
-  ];
-
   services.flatpak.enable = true;
 
   services.printing.enable = true;
