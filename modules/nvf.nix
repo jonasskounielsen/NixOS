@@ -19,7 +19,6 @@
           enable = true;
           crates = {
             enable = true;
-            codeActions = true;
           };
           dap.enable = true;
         };
@@ -38,6 +37,7 @@
             typst-preview-nvim.enable = true;
           };
         };
+        clang.enable = true;
       };
 
       lsp = {
