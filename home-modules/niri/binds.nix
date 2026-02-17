@@ -4,6 +4,13 @@ let
   audioSinkScript = import ./scripts/audio-sink-script.nix inputs;
 in
 /* kdl */ ''
+recent-windows {
+    binds {
+        Mod+Tab       { next-window; }
+        Mod+Shift+Tab { previous-window; }
+    }
+}
+
 binds {
     Mod+T                                repeat=false { spawn "kitty"; }
     Mod+N                                repeat=false { spawn "fuzzel"; }
@@ -90,8 +97,6 @@ binds {
     Mod+Ctrl+7                                        { move-column-to-workspace 7; }
     Mod+Ctrl+8                                        { move-column-to-workspace 8; }
     Mod+Ctrl+9                                        { move-column-to-workspace 9; }
-
-    Mod+Tab                                           { focus-workspace-previous; }
 
     Mod+Comma                                         { consume-or-expel-window-left; }
     Mod+Period                                        { consume-or-expel-window-right; }
