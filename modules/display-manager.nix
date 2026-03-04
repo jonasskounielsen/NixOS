@@ -10,7 +10,6 @@
     settings = {
       auth_fails = 5;
       auto_login_session = "niri";
-      auto_login_user = "jonas";
       clear_password = true;
     };
   };
