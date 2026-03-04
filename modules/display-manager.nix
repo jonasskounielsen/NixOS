@@ -1,10 +1,5 @@
 { ... }:
 {
-  services.displayManager.sddm = {
-    #enable = true;
-    #wayland.enable = true;
-  };
-
   services.displayManager.ly = {
     enable = true;
     settings = {
@@ -13,6 +8,4 @@
       clear_password = true;
     };
   };
-
-  #security.pam.services.sddm.kwallet.enable = true;
 }
