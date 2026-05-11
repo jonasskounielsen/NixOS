@@ -30,6 +30,7 @@
       xwayland-satellite
       xdg-desktop-portal-termfilechooser
       #  thunderbird
+      bambu-studio
     ];
 
     sessionVariables = {
