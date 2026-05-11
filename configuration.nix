@@ -20,7 +20,7 @@
     nixd
     nixfmt-rfc-style
     wget
-    tuxclocker
+    #tuxclocker
     wayclip
     brightnessctl
   ];
