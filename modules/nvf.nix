@@ -25,7 +25,7 @@
         nix = {
           enable = true;
           extraDiagnostics.enable = true;
-          lsp.server = "nixd";
+          lsp.server = [ "nixd" ];
         };
         lua = {
           enable = true;
@@ -47,7 +47,7 @@
         enable = true;
         inlayHints.enable = true;
         lightbulb.enable = true;
-        lspkind.enable = true;
+        #lspkind.enable = true;
         #lspsaga.enable = true;
         otter-nvim.enable = true;
         trouble.enable = true;
@@ -61,7 +61,7 @@
       telescope.enable = true;
 
       autocomplete.blink-cmp = {
-        enable = true;
+        #enable = true;
         friendly-snippets.enable = true;
       };
 
