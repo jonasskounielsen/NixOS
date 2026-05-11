@@ -10,9 +10,4 @@
       font-awesome
     ];
   };
-
-  fileSystems."/usr/share/fonts" = {
-    device = "/run/current-system/sw/share/X11/fonts";
-    options = [ "bind" ];
-  };
 }
