@@ -1,7 +1,7 @@
 { ... }:
 {
   services.displayManager.ly = {
-    enable = true;
+    #enable = true;
     settings = {
       auth_fails = 5;
       auto_login_session = "niri";
