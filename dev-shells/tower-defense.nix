@@ -41,5 +41,5 @@ pkgs.mkShell {
 
   shellHook = ''
     ulimit -n 8192
-  ''; # Neovim may hit the file descriptor limit.
+  ''; # Neovim may hit the file descriptor limit when using typst.
 }
