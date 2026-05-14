@@ -1,4 +1,4 @@
-{ /*config,*/ /*pkgs,*/ ... }:
+{ config, /*pkgs,*/ ... }:
 {
   imports =
     [
@@ -30,6 +30,8 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
+
     # Modesetting is required.
     modesetting.enable = true;
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
