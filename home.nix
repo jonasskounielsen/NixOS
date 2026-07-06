@@ -14,7 +14,7 @@
     packages = with pkgs; [
       kdePackages.plasma-browser-integration
       discord
-      bitwarden-desktop
+      #bitwarden-desktop
       onlyoffice-desktopeditors
       osu-lazer-bin
       processing
@@ -30,7 +30,7 @@
       xwayland-satellite
       xdg-desktop-portal-termfilechooser
       #  thunderbird
-      bambu-studio
+      #bambu-studio
     ];
 
     sessionVariables = {
