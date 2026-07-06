@@ -13,7 +13,7 @@ output "Sharp Corporation 0x149A Unknown" {
 }
 
 output "Acer Technologies VG240Y S 0x11013D54Acer Technologies VG240Y S 0x11013D54" {
-    mode "1920x1080@143.855"
+    mode "1920x1080@165.003"
 
     //position x=0 y=0
 }
