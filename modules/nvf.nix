@@ -17,15 +17,13 @@
         enableTreesitter = true;
         rust = {
           enable = true;
-          crates = {
-            enable = true;
-          };
           dap.enable = true;
+          extensions.crates-nvim.enable = true;
         };
         nix = {
           enable = true;
           extraDiagnostics.enable = true;
-          lsp.server = [ "nixd" ];
+          lsp.servers = [ "nixd" ];
         };
         lua = {
           enable = true;

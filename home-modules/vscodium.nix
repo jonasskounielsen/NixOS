@@ -1,7 +1,6 @@
 { pkgs, nix-vscode-extensions, ... }: {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     profiles =
       let
         userSettings = {
@@ -71,8 +70,8 @@
       in
       {
         rust = {
-          userSettings = userSettings;
-          keybindings = keybindings;
+          inherit userSettings;
+          inherit keybindings;
           extensions =
             extensions
             ++ (with pkgs.vscode-extensions; [
@@ -81,8 +80,8 @@
             ]);
         };
         esp8266 = {
-          userSettings = userSettings;
-          keybindings = keybindings;
+          inherit userSettings;
+          inherit keybindings;
           extensions =
             extensions
             ++ (with pkgs.vscode-extensions; [
@@ -90,8 +89,8 @@
             ]);
         };
         ttt-masters = {
-          userSettings = userSettings;
-          keybindings = keybindings;
+          inherit userSettings;
+          inherit keybindings;
           extensions =
             extensions
             ++ (with pkgs.vscode-extensions; [
@@ -111,7 +110,7 @@
               };
             };
           };
-          keybindings = keybindings;
+          inherit keybindings;
           extensions =
             extensions
             ++ (with pkgs.vscode-extensions; [
