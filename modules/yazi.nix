@@ -28,14 +28,14 @@
         plugin = {
           prepend_fetchers = [
             {
-              id   = "git";
-              name = "*";
-              run  = "git";
+              url   = "*";
+              run   = "git";
+              group = "git";
             }
             {
-              id   = "git";
-              name = "*/";
-              run  = "git";
+              url   = "*/";
+              run   = "git";
+              group = "git";
             }
           ];
           prepend_previewers = [ # Generates incorrect TOML, not sure how to fix
