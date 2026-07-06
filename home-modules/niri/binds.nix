@@ -1,6 +1,7 @@
 inputs:
 let
   brightnessScript = direction: import ./scripts/brightness-script.nix inputs direction;
+  volumeScript = direction: import ./scripts/volume-script.nix inputs direction;
   audioSinkScript = import ./scripts/audio-sink-script.nix inputs;
 in
 /* kdl */ ''
@@ -121,8 +122,8 @@ binds {
 
     Mod+E                                             { toggle-column-tabbed-display; }
 
-    XF86AudioRaiseVolume       allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume       allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume       allow-when-locked=true { spawn-sh "${volumeScript "up"}"; }
+    XF86AudioLowerVolume       allow-when-locked=true { spawn-sh "${volumeScript "down"}"; }
     XF86AudioMute              allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute           allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
