@@ -25,6 +25,10 @@
     brightnessctl
   ];
 
+  networking.firewall.allowedTCPPortRanges = [ {
+    from = 7270; to = 7270;
+  } ]; # For VNC home module.
+
   programs.steam.enable = true;
   programs.firefox.enable = true;
 

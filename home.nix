@@ -31,6 +31,7 @@
       xdg-desktop-portal-termfilechooser
       #  thunderbird
       #bambu-studio
+      tigervnc
     ];
 
     sessionVariables = {

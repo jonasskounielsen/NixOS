@@ -1,9 +1,6 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 {
   # Edits secrets with: sudo SOPS_AGE_KEY_FILE=/etc/sops/age/private_key.txt sops edit secrets.yaml
-  environment.systemPackages = with pkgs; [
-    rclone
-  ];
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
@@ -20,6 +17,9 @@
         neededForUsers = true;
       };
       jonasSshPrivateKey = {
+        owner = config.users.users.jonas.name;
+      };
+      vncPassword = {
         owner = config.users.users.jonas.name;
       };
     };
