@@ -1,8 +1,9 @@
 inputs:
 let
   brightnessScript = direction: import ./scripts/brightness-script.nix inputs direction;
-  volumeScript = direction: import ./scripts/volume-script.nix inputs direction;
-  audioSinkScript = import ./scripts/audio-sink-script.nix inputs;
+  volumeScript     = direction: import ./scripts/volume-script.nix     inputs direction;
+  audioSinkScript  =            import ./scripts/audio-sink-script.nix inputs;
+  monitorScript    =            import ./scripts/monitor-script.nix    inputs;
 in
 /* kdl */ ''
 recent-windows {
@@ -128,6 +129,7 @@ binds {
     XF86AudioMicMute           allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioNext              allow-when-locked=true { spawn-sh "${audioSinkScript}"; }
+    Shift+XF86AudioNext        allow-when-locked=true { spawn-sh "${monitorScript}"; }
 
     XF86MonBrightnessUp        allow-when-locked=true { spawn-sh "${brightnessScript "up"}"; }
     XF86MonBrightnessDown      allow-when-locked=true { spawn-sh "${brightnessScript "down"}"; }
