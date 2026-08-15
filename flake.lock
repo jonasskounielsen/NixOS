@@ -195,6 +195,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786611679,
+        "narHash": "sha256-iHLgonyilXNtHSPitZE0h0URVil/Xh2niKAdZU4V2fs=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "ea13b76065c748b33683a996ebd9fb88a3e28816",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -222,6 +242,7 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-20075955": "nixpkgs-20075955",
+        "noctalia": "noctalia",
         "nvf": "nvf",
         "sops-nix": "sops-nix"
       }

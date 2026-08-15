@@ -10,6 +10,8 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nvf.url = "github:notashelf/nvf";
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
