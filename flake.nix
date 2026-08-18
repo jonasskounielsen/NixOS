@@ -4,14 +4,23 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-20075955.url = "nixpkgs/20075955deac2583bb12f07151c2df830ef346b4";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     sops-nix.url = "github:Mic92/sops-nix";
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     nvf.url = "github:notashelf/nvf";
+
     awww.url = "git+https://codeberg.org/LGFae/awww";
+
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -21,16 +30,18 @@
       home-manager,
       sops-nix,
       nvf,
+      nix-index-database,
       ...
     }:
     let
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
       system = "x86_64-linux";
-      pkgs = (import nixpkgs { inherit system; });
-      pkgs-20075955 = (import nixpkgs-20075955 { inherit system; });
+      pkgs = import nixpkgs { inherit system; };
+      pkgs-20075955 = import nixpkgs-20075955 { inherit system; };
       sharedModules = [
         ./configuration.nix
         nvf.nixosModules.default
+        nix-index-database.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
