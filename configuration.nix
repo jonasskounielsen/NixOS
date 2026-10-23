@@ -30,7 +30,6 @@
   } ]; # For VNC home module.
 
   programs.steam.enable = true;
-  programs.firefox.enable = true;
 
   services.openssh.enable = true;
 

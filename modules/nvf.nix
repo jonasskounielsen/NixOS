@@ -34,11 +34,12 @@
         typst = {
           enable = true;
           extensions = {
-            typst-concealer.enable = true;
+            #typst-concealer.enable = true;
             typst-preview-nvim.enable = true;
           };
         };
         clang.enable = true;
+        arduino.enable = true;
       };
 
       lsp = {
