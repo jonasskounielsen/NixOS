@@ -9,6 +9,10 @@
   
   environment.shellAliases = {
     "rebuild" = "sudo nixos-rebuild switch";
+    "silde" = ''
+      PORT=$(curl -sS silde.dk/api/port)
+      kitten ssh -p $PORT silde@ssh.silde.dk
+    '';
     "ns" = "niri-session";
   };
 }
