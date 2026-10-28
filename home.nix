@@ -14,7 +14,6 @@
     packages = with pkgs; [
       kdePackages.plasma-browser-integration
       discord
-      #bitwarden-desktop
       onlyoffice-desktopeditors
       osu-lazer-bin
       processing
@@ -22,14 +21,13 @@
       signal-desktop
       zotero
       self.packages.${system}.minesweeper
-      # nirius
+      #nirius
       xdg-desktop-portal-gtk # Portals here instead of in portals.nix probably don't do anything.
       xdg-desktop-portal-gnome
       gnome-keyring
       kdePackages.polkit-kde-agent-1
       xwayland-satellite
       xdg-desktop-portal-termfilechooser
-      #  thunderbird
       #bambu-studio
       tigervnc
     ];
