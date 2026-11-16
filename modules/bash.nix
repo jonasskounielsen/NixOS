@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.bash = {
     interactiveShellInit =
@@ -14,5 +14,8 @@
       kitten ssh -p $PORT silde@ssh.silde.dk
     '';
     "ns" = "niri-session";
+    "mc" = "${pkgs.mcstatus}/bin/mcstatus mc.silde.dk";
+    "signal" = "signal-desktop --password-store='kwallet6'";
+    "notebook" = "nix develop system#jupyter";
   };
 }
